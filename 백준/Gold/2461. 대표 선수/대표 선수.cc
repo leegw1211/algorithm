@@ -8,6 +8,7 @@ struct cmp {
 		return a > b;
 	}
 };
+
 int main() {
 	int n, m; cin >> n >> m;
 	vector<vector<int>> a(n, vector<int>(m));
@@ -19,7 +20,7 @@ int main() {
 	for (int i=0; i<n; i++) {
 		sort(a[i].begin(), a[i].end());
 	}
-	
+
 	vector<int> indexlist(n, 1);
 	priority_queue<pair<int, int>, vector<pair<int, int>>, cmp> pq;
 	int curmax = 0, answer = 1000000001;
@@ -27,7 +28,7 @@ int main() {
 		pq.push({a[i][0], i});
 		curmax = max(curmax, a[i][0]);
 	}
-	
+
 	while (true) {
 		pair<int, int> curmin = pq.top();
 		pq.pop();
